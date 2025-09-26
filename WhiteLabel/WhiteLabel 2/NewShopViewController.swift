@@ -30,7 +30,7 @@ public class NewShopViewController: UIViewController {
         
         // Add sample content
         let titleLabel = UILabel()
-        titleLabel.text = "Welcome to Anthropologie"
+        titleLabel.text = "Welcome to Sample App"
         titleLabel.font = UIFont.systemFont(ofSize: 28, weight: .bold)
         titleLabel.textAlignment = .center
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -98,7 +98,7 @@ public class NewShopViewController: UIViewController {
     }
     
     private func setupCartButton() {
-        // Create cart button similar to Anthropologie's implementation
+        // Create cart button similar to app's implementation
         cartButton = UIButton(type: .system)
         cartButton.setTitle("🛒", for: .normal)
         cartButton.titleLabel?.font = UIFont.systemFont(ofSize: 24)
@@ -146,10 +146,10 @@ public class NewShopViewController: UIViewController {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             // Simulate the error from the logs
             let error = NSError(
-                domain: "URBNApiServices.ApiServiceError",
+                domain: "ApiServices.ApiServiceError",
                 code: 5,
                 userInfo: [
-                    NSLocalizedDescriptionKey: "serverResponseError(httpStatusCode: URBNApiServices.HttpStatusCode.preconditionFailed, response: URBNApiServices.ServerResponseError(code: Optional(\"TOKEN_CART_NOT_VALID\"), message: Optional(\"\"), existingResourceId: nil, field_errors: nil)) (Code: 5)"
+                    NSLocalizedDescriptionKey: "serverResponseError(httpStatusCode: ApiServices.HttpStatusCode.preconditionFailed, response: ApiServices.ServerResponseError(code: Optional(\"TOKEN_CART_NOT_VALID\"), message: Optional(\"\"), existingResourceId: nil, field_errors: nil)) (Code: 5)"
                 ]
             )
             

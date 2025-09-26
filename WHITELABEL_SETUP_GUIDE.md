@@ -25,7 +25,7 @@
   - `NewShopNavigationController.swift`
   - `NewShopViewController.swift`
   - `ShopTileViewController.swift`
-  - `URBNNavigationController.swift`
+  - `NavigationController.swift`
   - `CartViewController.swift`
   - `BasketViewController.swift`
   - `CustomViewController.swift`

@@ -33,7 +33,7 @@ public class AppCoordinator {
     
     public func showCart() {
         // Create cart navigation controller using framework view controllers
-        let cartNavigationController = URBNNavigationController()
+        let cartNavigationController = NavigationController()
         let cartViewController = CartViewController()
         let basketViewController = BasketViewController()
         

@@ -12,7 +12,7 @@ public class TabBarController: UITabBarController {
     }
     
     private func setupUI() {
-        // Hide tab bar as per Anthropologie's design
+        // Hide tab bar as per app design
         tabBar.isHidden = true
     }
     

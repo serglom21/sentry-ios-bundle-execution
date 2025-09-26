@@ -13,7 +13,7 @@ The app demonstrates a common iOS app architecture where view controllers are or
 - **Programmatic UI**: No storyboards, all UI built programmatically
 - **Navigation Hierarchy**: 
   - `WhiteLabel.AppContainerViewController` → `WhiteLabel.TabBarController` → `WhiteLabel.NewShopNavigationController` → `WhiteLabel.NewShopViewController` → `WhiteLabel.ShopTileViewController`
-  - Cart flow: `WhiteLabel.URBNNavigationController` → `WhiteLabel.CartViewController` → `WhiteLabel.BasketViewController`
+  - Cart flow: `WhiteLabel.NavigationController` → `WhiteLabel.CartViewController` → `WhiteLabel.BasketViewController`
 
 ### Key Features
 - Sentry SDK integration with performance monitoring enabled
@@ -62,7 +62,7 @@ When navigating through the app, Sentry should capture UI load spans for:
 - `WhiteLabel.NewShopNavigationController` ❌ **MISSING** (framework bundle exclusion)
 - `WhiteLabel.NewShopViewController` ❌ **MISSING** (framework bundle exclusion)
 - `WhiteLabel.ShopTileViewController` ❌ **MISSING** (framework bundle exclusion)
-- `WhiteLabel.URBNNavigationController` ❌ **MISSING** (framework bundle exclusion)
+- `WhiteLabel.NavigationController` ❌ **MISSING** (framework bundle exclusion)
 - `WhiteLabel.CartViewController` ❌ **MISSING** (framework bundle exclusion)
 - `WhiteLabel.BasketViewController` ❌ **MISSING** (framework bundle exclusion)
 
@@ -83,7 +83,7 @@ WhiteLabel.TabBarController appeared
 WhiteLabel.NewShopNavigationController appeared
 WhiteLabel.NewShopViewController appeared
 WhiteLabel.ShopTileViewController appeared
-WhiteLabel.URBNNavigationController appeared
+WhiteLabel.NavigationController appeared
 WhiteLabel.CartViewController appeared
 WhiteLabel.BasketViewController appeared
 ```
@@ -137,10 +137,10 @@ The app includes sample error simulation for testing:
 
 ```swift
 let error = NSError(
-    domain: "URBNApiServices.ApiServiceError",
+    domain: "ApiServices.ApiServiceError",
     code: 5,
     userInfo: [
-        NSLocalizedDescriptionKey: "serverResponseError(httpStatusCode: URBNApiServices.HttpStatusCode.preconditionFailed, response: URBNApiServices.ServerResponseError(code: Optional(\"TOKEN_CART_NOT_VALID\"), message: Optional(\"\"), existingResourceId: nil, field_errors: nil)) (Code: 5)"
+        NSLocalizedDescriptionKey: "serverResponseError(httpStatusCode: ApiServices.HttpStatusCode.preconditionFailed, response: ApiServices.ServerResponseError(code: Optional(\"TOKEN_CART_NOT_VALID\"), message: Optional(\"\"), existingResourceId: nil, field_errors: nil)) (Code: 5)"
     ]
 )
 SentrySDK.captureError(error)
@@ -173,7 +173,7 @@ SampleApp/
         ├── NewShopNavigationController.swift # Shop navigation controller
         ├── NewShopViewController.swift # Main shop view controller
         ├── ShopTileViewController.swift # Product detail view controller
-        ├── URBNNavigationController.swift # Cart navigation controller
+        ├── NavigationController.swift # Cart navigation controller
         ├── CartViewController.swift    # Cart view controller
         ├── BasketViewController.swift  # Checkout view controller
         └── CustomViewController.swift  # Test view controller

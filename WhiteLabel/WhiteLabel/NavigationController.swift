@@ -1,10 +1,10 @@
 import UIKit
 
-// MARK: - URBNNavigationController
+// MARK: - NavigationController
 // This view controller is now in the WhiteLabel framework
 // Sentry will exclude it from UI load span tracking because it's not in the main app bundle
 
-public class URBNNavigationController: UINavigationController {
+public class NavigationController: UINavigationController {
     
     public override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +28,6 @@ public class URBNNavigationController: UINavigationController {
         super.viewDidAppear(animated)
         
         // This should trigger UI load spans in Sentry, but won't because it's in a framework
-        print("WhiteLabel.URBNNavigationController appeared")
+        print("WhiteLabel.NavigationController appeared")
     }
 }

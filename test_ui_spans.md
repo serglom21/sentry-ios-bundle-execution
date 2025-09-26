@@ -26,7 +26,7 @@ This guide helps you test and verify UI load spans behavior in the Sample App.
 
 ### 3. Cart Flow (Error Scenario)
 **Expected UI Load Spans:**
-- `URBNNavigationController` (appear)
+- `NavigationController` (appear)
 - `CartViewController` (appear)
 - `BasketViewController` (appear)
 
@@ -43,7 +43,7 @@ This guide helps you test and verify UI load spans behavior in the Sample App.
 3. `NewShopNavigationController` (appear)
 4. `NewShopViewController` (appear)
 5. `ShopTileViewController` (appear) - when tapping "Browse Products"
-6. `URBNNavigationController` (appear) - when tapping cart
+6. `NavigationController` (appear) - when tapping cart
 7. `CartViewController` (appear)
 8. `BasketViewController` (appear)
 
@@ -64,7 +64,7 @@ TabBarController appeared
 NewShopNavigationController appeared
 NewShopViewController appeared
 ShopTileViewController appeared
-URBNNavigationController appeared
+NavigationController appeared
 CartViewController appeared
 BasketViewController appeared
 ```

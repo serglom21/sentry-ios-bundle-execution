@@ -16,7 +16,7 @@ public class AppContainerViewController: UIViewController {
         
         // Add a loading indicator or splash screen elements
         let label = UILabel()
-        label.text = "Anthropologie Sample App"
+        label.text = "Sample App"
         label.font = UIFont.systemFont(ofSize: 24, weight: .bold)
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false

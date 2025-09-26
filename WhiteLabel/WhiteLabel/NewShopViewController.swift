@@ -184,7 +184,7 @@ public class NewShopViewController: UIViewController {
     
     private func presentCart() {
         // Create cart navigation controller using framework view controllers
-        let cartNavigationController = URBNNavigationController()
+        let cartNavigationController = NavigationController()
         let cartViewController = CartViewController()
         let basketViewController = BasketViewController()
         

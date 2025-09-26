@@ -12,12 +12,12 @@ public class AppCoordinator {
     }
     
     public func start() {
-        // Create the full Anthropologie app structure using framework view controllers
+        // Create the full app structure using framework view controllers
         setupMainInterface()
     }
     
     private func setupMainInterface() {
-        // Create the main tab bar controller (hidden as per Anthropologie's design)
+        // Create the main tab bar controller (hidden as per app design)
         let tabBarController = TabBarController()
         
         // Create the main shop navigation controller
@@ -33,7 +33,7 @@ public class AppCoordinator {
     
     public func showCart() {
         // Create cart navigation controller using framework view controllers
-        let cartNavigationController = URBNNavigationController()
+        let cartNavigationController = NavigationController()
         let cartViewController = CartViewController()
         let basketViewController = BasketViewController()
         
