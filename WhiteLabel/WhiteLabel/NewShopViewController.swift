@@ -180,6 +180,49 @@ public class NewShopViewController: UIViewController {
         
         // This should trigger UI load spans in Sentry, but won't because it's in a framework
         print("WhiteLabel.NewShopViewController appeared")
+        
+        // Unmask buttons for Session Replay
+        unmaskButtonsForSessionReplay()
+    }
+    
+    private func unmaskButtonsForSessionReplay() {
+        // Unmask the main buttons on the first screen for Session Replay
+        // Using the view instance masking API from Sentry documentation
+        
+        // Find and unmask the "Browse Products" button
+        if let shopTileButton = findButton(withTitle: "Browse Products") {
+            SentrySDK.replay.unmaskView(shopTileButton)
+            print("Unmasked 'Browse Products' button for Session Replay")
+        }
+        
+        // Find and unmask the "Test UI Load Spans Issue" button
+        if let testButton = findButton(withTitle: "Test UI Load Spans Issue") {
+            SentrySDK.replay.unmaskView(testButton)
+            print("Unmasked 'Test UI Load Spans Issue' button for Session Replay")
+        }
+        
+        // Unmask the cart button
+        SentrySDK.replay.unmaskView(cartButton)
+        print("Unmasked cart button for Session Replay")
+    }
+    
+    private func findButton(withTitle title: String) -> UIButton? {
+        // Helper method to find buttons by title in the view hierarchy
+        return findButtonInView(view, withTitle: title)
+    }
+    
+    private func findButtonInView(_ view: UIView, withTitle title: String) -> UIButton? {
+        if let button = view as? UIButton, button.title(for: .normal) == title {
+            return button
+        }
+        
+        for subview in view.subviews {
+            if let foundButton = findButtonInView(subview, withTitle: title) {
+                return foundButton
+            }
+        }
+        
+        return nil
     }
     
     private func presentCart() {

@@ -31,7 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // This configuration enables performance monitoring but UI load spans will still be missing
         // because the view controllers are in the WhiteLabel framework (not main app bundle)
         SentrySDK.start { options in
-            options.dsn = "YOUR_SENTRY_DSN_HERE"
+            options.dsn = "https://bd03859ac43e47f1a74c83a5a2b8614b@o88872.ingest.us.sentry.io/6748045"
             
             #if RELEASE
             options.environment = "production"
@@ -50,6 +50,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             options.enableAutoSessionTracking = true
             options.enableWatchdogTerminationTracking = true
             options.enableAutoBreadcrumbTracking = true
+            
+            #if DEBUG
+            // Show Session Replay masking preview for debugging
+            // This will display an overlay showing which elements are masked
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                SentrySDK.replay.showMaskPreview(0.3) // 30% opacity for semi-transparent preview
+            }
+            #endif
         }
     }
 
