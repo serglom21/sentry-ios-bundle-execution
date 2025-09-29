@@ -27,9 +27,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     private func initializeSentry() {
-        // SOLUTION IMPLEMENTED: Fixed missing UI load spans for framework bundle view controllers
-        // Using inAppInclude to tell Sentry that WhiteLabel framework is part of the application
-        // This enables UI load spans and proper performance monitoring for framework view controllers
         SentrySDK.start { options in
             options.dsn = ""
             
