@@ -27,11 +27,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     private func initializeSentry() {
-        // REPRODUCING CUSTOMER ISSUE: Missing UI load spans due to framework bundle exclusion
-        // This configuration enables performance monitoring but UI load spans will still be missing
-        // because the view controllers are in the WhiteLabel framework (not main app bundle)
+        // SOLUTION IMPLEMENTED: Fixed missing UI load spans for framework bundle view controllers
+        // Using inAppInclude to tell Sentry that WhiteLabel framework is part of the application
+        // This enables UI load spans and proper performance monitoring for framework view controllers
         SentrySDK.start { options in
-            options.dsn = "https://bd03859ac43e47f1a74c83a5a2b8614b@o88872.ingest.us.sentry.io/6748045"
+            options.dsn = ""
             
             #if RELEASE
             options.environment = "production"
@@ -44,8 +44,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             options.sessionReplay.sessionSampleRate = 1.0
             #endif
             
+            // SOLUTION: Include framework modules as part of the application
+            // This enables UI load spans for view controllers in framework bundles
+            options.add(inAppInclude: "WhiteLabel")
+            
             // ENABLE performance monitoring
-            // UI load spans will still be missing due to framework bundle exclusion
+            // UI load spans will now be generated for framework view controllers
             options.tracesSampleRate = 1.0
             options.enableAutoSessionTracking = true
             options.enableWatchdogTerminationTracking = true
